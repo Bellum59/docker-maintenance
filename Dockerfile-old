@@ -1,0 +1,9 @@
+FROM node:18.20
+WORKDIR /var/www/projetMobile/w
+COPY package*.json ./
+RUN npm install
+COPY . .
+WORKDIR nodes_modules/electron/
+RUN npm postinstall
+EXPOSE 3000
+CMD ["npm", "start"]
